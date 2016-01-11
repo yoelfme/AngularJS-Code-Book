@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="es" ng-app='ExampleApp'>
+<html lang="es" ng-app='myApp'>
 <head>
     <meta charset="UTF-8">
     <title>Example</title>
 </head>
 <body ng-controller="TextController">
-    <p>{{ someText }}</p>
+    <p>{{ someText.message }}</p>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
 
@@ -13,10 +13,13 @@
     (function () {
         'use strict';
 
-        angular.module('ExampleApp', [])
-            .controller('TextController', ['$scope', function ($scope) {
-                $scope.someText = 'You have started your journey';
-            }]);
+        var myAppModule = angular.module('myApp', []);
+
+        myAppModule.controller('TextController', ['$scope', function ($scope) {
+            var someText = {};
+            someText.message = 'Your have started your journey';
+            $scope.someText = someText;
+        }]);
     })();
     </script>
 </body>
