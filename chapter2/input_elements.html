@@ -13,9 +13,14 @@
     </div>
 
     <div ng-controller="StartUpController">
-        <form>
+        <form ng-submit="requestFunding()">
             Starting: <input ng-model="funding.startingEstimate">
+            <br>
             Recommendation: {{ funding.needed }}
+            <br>
+            <button>Fund my startup!</button>
+            <br>
+            <button type="button" ng-click="reset()">Reset</button>
         </form>
     </div>
 
@@ -40,7 +45,15 @@
                     $scope.funding.needed = $scope.funding.startingEstimate * 10;
                 };
 
-                $scope.$watch('funding.startingEstimate', computeNeeded)
+                $scope.requestFunding = function () {
+                    window.alert('Sorry, please get more customers first.');
+                };
+
+                $scope.reset = function () {
+                    $scope.funding.startingEstimate = 0;
+                };
+
+                $scope.$watch('funding.startingEstimate', computeNeeded);
             }]);
         })();
     </script>
