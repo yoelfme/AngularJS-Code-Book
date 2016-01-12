@@ -14,8 +14,7 @@
 
     <div ng-controller="StartUpController">
         <form>
-            Starting: <input ng-change="computeNeeded()"
-                            ng-model="funding.startingEstimate">
+            Starting: <input ng-model="funding.startingEstimate">
             Recommendation: {{ funding.needed }}
         </form>
     </div>
@@ -37,9 +36,11 @@
                     startingEstimate: 0
                 };
 
-                $scope.computeNeeded = function () {
+                var computeNeeded = function () {
                     $scope.funding.needed = $scope.funding.startingEstimate * 10;
                 };
+
+                $scope.$watch('funding.startingEstimate', computeNeeded)
             }]);
         })();
     </script>
