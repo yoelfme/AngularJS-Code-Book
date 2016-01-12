@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Scope Controllers</title>
+</head>
+<body>
+
+    <div class="navbar" ng-controller="NavController">
+        <li class="menu-item" ng-click="doSomething()">
+            Navbar
+        </li>
+    </div>
+
+    <div class="contentArea" ng-controller="ContentAreaController">
+        <div ng-click="doSomething()">
+            Content Area
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
+
+    <script>
+        (function () {
+            'use strict';
+
+            var myApp = angular.module('myApp', []);
+
+            myApp.controller('NavController', ['$scope', function ($scope) {
+                $scope.doSomething = function () {
+                    alert('Navbar');
+                }
+            }]);
+
+            myApp.controller('ContentAreaController', ['$scope', function ($scope) {
+                $scope.doSomething = function () {
+                    alert('Content Area')
+                }
+            }]);
+        })();
+    </script>
+</body>
+</html>
