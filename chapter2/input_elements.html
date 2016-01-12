@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es" ng-app='myApp'>
+<head>
+    <meta charset="UTF-8">
+    <title>Input Elements</title>
+</head>
+<body>
+
+    <div ng-controller="SomeController">
+        <form action="#">
+            <input type="checkbox" ng-model="youCheckedIt"> Checkbox
+        </form>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
+
+    <script>
+        (function () {
+            'use strict';
+
+            var myApp = angular.module('myApp', []);
+
+            myApp.controller('SomeController', ['$scope', function ($scope) {
+                $scope.youCheckedIt = true;
+            }]);
+        })();
+    </script>
+</body>
+</html>
