@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Lists</title>
+
+</head>
+<body>
+
+    <ul ng-controller="ListController">
+        <li ng-repeat="student in students">
+            <a href="/student/view/{{ student.id }}">{{ student.name }}</a>
+        </li>
+    </ul>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
+
+    <script>
+        (function () {
+            'use strict';
+
+            var myApp = angular.module('myApp', []);
+            var students = [
+                {name: 'Yoel Monzon', id: '1'},
+                {name: 'Yulien Hernandez', id: '2'},
+                {name: 'Jill Hill', id: '3'}
+            ];
+
+            myApp.controller('ListController', ['$scope', function ($scope) {
+                $scope.students = students;
+            }]);
+        })();
+    </script>
+</body>
+</html>
