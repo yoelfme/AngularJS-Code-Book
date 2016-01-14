@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiding and Showing</title>
+
+    <style>
+        .menu-disabled-true {
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+
+    <div ng-controller="DeathrayMenuController">
+        <button ng-click="toggleMenu()">Toggle Menu</button>
+
+        <ul>
+            <li class="menu-disabled-{{ isDisabled }}" ng-click="stun()">Stun</li>
+            <li ng-click="disintegrate()">Disintegrate</li>
+            <li ng-click="erase()">Erase from history</li>
+        </ul>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
+
+    <script>
+        (function () {
+            'use strict';
+
+            var myApp = angular.module('myApp', []);
+
+            myApp.controller('DeathrayMenuController', ['$scope', function ($scope) {
+                $scope.isDisabled = false;
+
+                $scope.stun = function () {
+                    // stun the target, then disable menu to allow regeneration
+                    $scope.isDisabled = true;
+                }
+
+            }]);
+        })();
+    </script>
+
+</body>
+</html>
