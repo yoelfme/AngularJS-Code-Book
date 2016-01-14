@@ -7,11 +7,15 @@
 </head>
 <body>
 
-    <ul ng-controller="ListController">
-        <li ng-repeat="student in students">
-            <a href="/student/view/{{ student.id }}">{{ student.name }}</a>
-        </li>
-    </ul>
+    <div ng-controller="ListController">
+        <ul>
+            <li ng-repeat="student in students">
+                <a href="/student/view/{{ student.id }}">{{ student.name }}</a>
+            </li>
+        </ul>
+
+        <button ng-click="insertTom()">Insert</button>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
 
@@ -28,6 +32,10 @@
 
             myApp.controller('ListController', ['$scope', function ($scope) {
                 $scope.students = students;
+
+                $scope.insertTom = function () {
+                    $scope.students.splice(1, 0, {name: 'Tom Thum', id: '4'});
+                }
             }]);
         })();
     </script>
