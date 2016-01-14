@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiding and Showing</title>
+</head>
+<body>
+
+    <div ng-controller="DeathrayMenuController">
+        <button ng-click="toggleMenu()">Toggle Menu</button>
+
+        <ul ng-show="menuState.show">
+            <li ng-click="stun()">Stun</li>
+            <li ng-click="disintegrate()">Disintegrate</li>
+            <li ng-click="erase()">Erase from history</li>
+        </ul>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
+
+    <script>
+        (function () {
+            'use strict';
+
+            var myApp = angular.module('myApp', []);
+
+            myApp.controller('DeathrayMenuController', ['$scope', function ($scope) {
+                $scope.menuState = {
+                    show: false
+                };
+
+                $scope.toggleMenu = function () {
+                    $scope.menuState.show = ! $scope.menuState.show;
+                };
+
+                $scope.stun = function () {
+                    alert('Stun');
+                };
+
+                $scope.disintegrate = function () {
+                    alert('Disintegrate');
+                };
+
+                $scope.erase = function () {
+                    alert('Erase');
+                };
+
+            }]);
+        })();
+    </script>
+
+</body>
+</html>
