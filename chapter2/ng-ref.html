@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Ng-ref</title>
+</head>
+<body>
+
+    <div ng-controller="ImageController">
+        <img ng-src="http://placehold.it/{{width}}x{{height}}" >
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
+
+    <script>
+        (function () {
+            'use strict';
+
+            var myAppModule = angular.module('myApp', []);
+
+            myAppModule.controller('ImageController', ['$scope', function ($scope) {
+                $scope.width = 350;
+                $scope.height = 150;
+            }]);
+        })();
+    </script>
+</body>
+</html>
