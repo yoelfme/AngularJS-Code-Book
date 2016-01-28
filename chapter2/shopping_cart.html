@@ -5,11 +5,6 @@
     <title>Shopping Cart</title>
 
     <style>
-        .product {
-            margin: 0 auto;
-            text-align: left;
-        }
-
         .product span, .product input {
             width: 100px;
             display: inline-block;
@@ -22,7 +17,7 @@
     <div ng-controller="CartController">
         <div class="product" ng-repeat="item in items">
             <span>{{ item.title }}</span>
-            <input type="number" ng-model="item.quantity">
+            <input type="number" ng-model="item.quantity" ng-init="item.quantity = item.quantity || 0">
             <span>{{ item.price | currency }}</span>
             <span>{{ item.price * item.quantity | currency }}</span>
             <button ng-click="removeProduct($index)">Delete</button>
@@ -48,7 +43,6 @@
                 $scope.items = [
                     {
                         title: 'Paint pots',
-                        quantity: 2,
                         price: 3.95
                     },
                     {
