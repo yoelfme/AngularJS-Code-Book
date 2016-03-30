@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formatting Data with Filters</title>
+</head>
+<body ng-app="FilterModule" ng-controller="HomeController">
+
+    <h1>{{ pageHeading | titleCase }}</h1>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+
+    <script>
+        (function () {
+            'use strict';
+
+            var filterModule = angular.module('FilterModule', []);
+
+            filterModule.filter('titleCase', function () {
+                var titleCaseFilter = function (input) {
+                    var words = input.split(' ');
+
+                    for (var i = 0; i < words.length; i++) {
+                        words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+                    }
+
+                    return words.join(' ');
+                }
+
+                return titleCaseFilter;
+            });
+
+            filterModule.controller('HomeController', ['$scope', function ($scope) {
+                $scope.pageHeading = 'behold the majesty of your page title';
+            }]);
+        })();
+    </script>
+
+</body>
+</html>
