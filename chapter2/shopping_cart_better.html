@@ -57,6 +57,9 @@
                     }
                 ];
 
+                $scope.removeProduct = function (index) {
+                    $scope.items.splice(index, 1);
+                }
 
                 var calculateTotals = function () {
                     var total = 0;
