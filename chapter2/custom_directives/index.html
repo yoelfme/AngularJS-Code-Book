@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Custom Directives</title>
+</head>
+<body ng-controller="AppController">
+
+    <button ng-click="clickUnfocused()">
+        Not focused
+    </button>
+
+    <button ngbk-focus ng-click="clickFocused()">
+        I'm very focused!
+    </button>
+    <div>{{ message.text }}</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="src/controllers.js"></script>
+</body>
+</html>
