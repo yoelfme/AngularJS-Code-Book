@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="TalkServers">
+<head>
+    <meta charset="UTF-8">
+    <title>Talk with Servers</title>
+</head>
+<body>
+
+    <body ng-controller="ShoppingController">
+        <h1>Shop!</h1>
+
+        <table>
+            <tr ng-repeat="user in users">
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.website }}</td>
+            </tr>
+        </table>
+    </body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="src/controllers.js"></script>
+
+</body>
+</html>
