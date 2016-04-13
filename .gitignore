@@ -1,2 +1,10 @@
 # OSX Files
 DS_Store
+
+node_modules
+
+bower_components
+
+.tmp
+
+dist/
